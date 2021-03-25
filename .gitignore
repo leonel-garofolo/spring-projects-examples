@@ -1,6 +1,9 @@
 /.metadata/
 /.class
 
+/.mvn/
+*/.mvn/**
+
 /target/
 */target/**
 **/META-INF/
