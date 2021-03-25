@@ -1,0 +1,14 @@
+spring:
+   application:
+      name: limits-service
+      
+   cloud:
+     config:
+        server:
+           git:
+             default-label: main
+             uri: file:///home/leonel/workspace/spring/spring-projects-examples/git-localconfig-repo
+             
+   
+server:
+   port: 8888
