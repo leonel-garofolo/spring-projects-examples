@@ -18,7 +18,6 @@ class Producer {
   @GetMapping()
   public Map<String, String> message() {
     Map<String, String> response = new HashMap<>();
-        
     response.put("message", message);
     response.put("global-message", globalMessage);
     
