@@ -11,6 +11,8 @@
 
 #VS Code
 */.vscode/**
+.vscode/launch.json
+.vscode/settings.json
 
 ### STS ###
 .apt_generated
@@ -20,3 +22,4 @@
 .settings
 .springBeans
 .sts4-cache
+
