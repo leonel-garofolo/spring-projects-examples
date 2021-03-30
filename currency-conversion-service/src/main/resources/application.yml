@@ -4,7 +4,7 @@ spring:
     cloud:
         config: http://localhost:8888
 
-
-currency-exchange-service:
-    ribbon:
-        listOfServers: http://localhost:8002;http://localhost:8003 
+#With Eureka-Ribbon config is not necesary to config each URL of microservice
+#currency-exchange-service:
+#    ribbon:
+#        listOfServers: http://localhost:8002,http://localhost:8003 

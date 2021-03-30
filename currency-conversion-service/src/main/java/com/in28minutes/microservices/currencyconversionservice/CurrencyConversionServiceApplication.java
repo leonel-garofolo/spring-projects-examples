@@ -11,6 +11,7 @@ import brave.sampler.Sampler;
 @SpringBootApplication
 @EnableFeignClients("com.in28minutes.microservices.currencyconversionservice")
 @EnableDiscoveryClient
+///currency-converter-feign/from/USD/to/INR/quantity/1000
 public class CurrencyConversionServiceApplication {
 
 	public static void main(String[] args) {

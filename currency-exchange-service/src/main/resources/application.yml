@@ -7,4 +7,4 @@ spring:
         show: true    
     h2:
         console:
-            enabled: true
+            enabled: true/currency-converter-feign/from/USD/to/INR/quantity/1000
