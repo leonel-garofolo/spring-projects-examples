@@ -30,6 +30,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
+		<dependency> <!-- Intercept all request to do log -->
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

@@ -1,5 +1,7 @@
 package com.in28minutes.microservices.limitsservice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +12,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 @RestController
 public class LimitsConfigurationController {
 
+	Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	@Autowired
 	private Configuration configuration;
 
@@ -17,6 +21,7 @@ public class LimitsConfigurationController {
 	public LimitConfiguration retrieveLimitsFromConfigurations() {
 		LimitConfiguration limitConfiguration = new LimitConfiguration(configuration.getMaximum(), 
 				configuration.getMinimum());
+		logger.info("leonel: {}", limitConfiguration);
 		return limitConfiguration;
 	}
 	

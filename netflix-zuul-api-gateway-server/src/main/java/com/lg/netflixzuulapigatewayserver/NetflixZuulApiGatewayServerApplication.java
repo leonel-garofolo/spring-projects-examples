@@ -6,8 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+import org.springframework.cloud.sleuth.SamplerFunction;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+
+import brave.sampler.Sampler;
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -19,14 +22,6 @@ public class NetflixZuulApiGatewayServerApplication {
 		SpringApplication.run(NetflixZuulApiGatewayServerApplication.class, args);
 	}
 
-	/*
-	@Bean
-	public ServerCodecConfigurer serverCodecConfigurer() {
-	return ServerCodecConfigurer.create();
-	}
-	*/
-
-	
 	@Bean
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 
@@ -36,6 +31,9 @@ public class NetflixZuulApiGatewayServerApplication {
 			.uri("http://httpbin.org"))
 			.build();
 	}
-	
 
+	@Bean
+	public Sampler defaultSamplerFunction() {
+		return Sampler.ALWAYS_SAMPLE;
+	}
 }
