@@ -1,0 +1,39 @@
+spring:
+    application:
+        name: netflix-zuul-api-gateway-server
+    cloud:
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+                    lowerCaseServiceId: true            
+            routes:
+                id: after_route
+                uri: https://example.org
+                predicates:
+                - Cookie=mycookie,mycookievalue
+
+server:
+    port: 8060
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
+
+
+
+#http://192.168.1.20:8060/{application-naming}/{URI}
+#http://192.168.1.20:8001/currency-converter/from/USD/to/INR/quantity/1000 
+#http://192.168.1.20:8060/currency-conversion-service/currency-converter/from/USD/to/INR/quantity/1000  
+
+      
