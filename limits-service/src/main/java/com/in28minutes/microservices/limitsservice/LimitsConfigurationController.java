@@ -18,15 +18,16 @@ public class LimitsConfigurationController {
 	private Configuration configuration;
 
 	@GetMapping("/limits")
+	@HystrixCommand(fallbackMethod="fallbackRetrieveConfiguration") // add default value to fail services
 	public LimitConfiguration retrieveLimitsFromConfigurations() {
 		LimitConfiguration limitConfiguration = new LimitConfiguration(configuration.getMaximum(), 
 				configuration.getMinimum());
 		logger.info("leonel: {}", limitConfiguration);
 		return limitConfiguration;
 	}
-	
+		
 	@GetMapping("/fault-tolerance-example")
-	@HystrixCommand(fallbackMethod="fallbackRetrieveConfiguration")
+	@HystrixCommand(fallbackMethod="fallbackRetrieveConfiguration") // add default value to fail services
 	public LimitConfiguration retrieveConfiguration() {
 		throw new RuntimeException("Not available");
 	}
