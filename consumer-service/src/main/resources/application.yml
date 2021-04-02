@@ -2,15 +2,7 @@ spring:
   application:
     name: consumer-service 
   config:
-    import: optional:configserver:http://localhost:8888/
-  profiles:
-    active: dev
-
-management:
-  endpoints:
-    web:
-      exposure:
-        exclude: '*'
+    import: optional:configserver:http://localhost:8888/  
         
         
 

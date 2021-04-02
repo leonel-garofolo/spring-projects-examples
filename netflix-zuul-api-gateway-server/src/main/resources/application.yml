@@ -12,6 +12,8 @@ spring:
                 uri: https://example.org
                 predicates:
                 - Cookie=mycookie,mycookievalue
+    zipkin:
+        baseUrl: http://localhost:9411
 
 server:
     port: 8060
@@ -20,7 +22,8 @@ eureka:
   client:
     service-url:
       default-zone: http://localhost:8761/eureka
-
+      
+      
 
 logging:
   level:
